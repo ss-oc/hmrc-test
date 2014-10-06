@@ -20,6 +20,8 @@ class BasicShoppingCartSpec extends FeatureSpec with GivenWhenThen with Matchers
 
       Then("it should have found an apple product")
       cart.countProducts should be(2)
+      cart.countProducts("apple") should be(1)
+      cart.countProducts("orange") should be(1)
     }
   }
 }

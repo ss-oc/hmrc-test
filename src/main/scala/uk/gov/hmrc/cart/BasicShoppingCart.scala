@@ -12,4 +12,8 @@ class BasicShoppingCart extends ShoppingCart {
   override def addProduct(product: Product) = items = product :: items
 
   override def countProducts = items.size
+
+  override def countProducts(productName: String) = {
+    items.filter(_.name == productName.toLowerCase).size
+  }
 }

@@ -10,4 +10,6 @@ trait ShoppingCart {
   def addProduct(product: Product)
 
   def countProducts: Int
+
+  def countProducts(productName: String): Int
 }
