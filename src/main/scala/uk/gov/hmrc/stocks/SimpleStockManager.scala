@@ -3,8 +3,7 @@ package uk.gov.hmrc.stocks
 import uk.gov.hmrc.products.{Apple, Orange}
 
 /**
- * User: rgallet
- * Date: 06/10/14 21:26
+ * Static stock manager that's only serving apples and oranges
  */
 class SimpleStockManager extends StockManager {
   //a real system would get that from some DAO

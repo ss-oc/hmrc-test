@@ -1,8 +1,7 @@
 package uk.gov.hmrc.products
 
 /**
- * User: rgallet
- * Date: 06/10/14 21:28
+ * Voluntarily NOT overriding hashcode() and equals()
  */
 trait Product {
   def price: BigDecimal

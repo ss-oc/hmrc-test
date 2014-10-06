@@ -6,8 +6,9 @@ import uk.gov.hmrc.stocks.StockManager
 import scala.util.{Failure, Success, Try}
 
 /**
- * User: rgallet
- * Date: 06/10/14 21:52
+ * Parses a comma-separated list of apples and oranges
+ *
+ * TODO: proper logging
  */
 class CommandLineParser(stockManager: StockManager) {
   def parse(csv: String): List[Product] = {

@@ -1,8 +1,7 @@
 package uk.gov.hmrc.stocks
 
 /**
- * User: rgallet
- * Date: 06/10/14 21:38
+ * When product is not found
  */
 class ProductNotFoundException extends RuntimeException {
 

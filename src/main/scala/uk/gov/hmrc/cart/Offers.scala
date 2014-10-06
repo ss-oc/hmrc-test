@@ -1,12 +1,19 @@
 package uk.gov.hmrc.cart
 
 /**
- * User: rgallet
- * Date: 06/10/14 23:38
+ * Adds a promotional trait to a shopping cart
+ *
+ * TODO: proper logging
  */
 trait Offers {
   this: ShoppingCart =>
 
+  /**
+   * Returns list of eligible products for cart price calculations,
+   * taking into account promotional ofers.
+   *
+   * @return list of eligible products to calculate cart price
+   */
   override def eligibleProducts = {
     val applesToDiscards = calculateApplesToDiscard
     val orangesToDiscards = calculateOrangesToDiscard
@@ -18,6 +25,9 @@ trait Offers {
     oranges ++ apples
   }
 
+  /**
+   * buy one, get one free on Apples
+   */
   def calculateApplesToDiscard: Int = {
     val nbApples = products count (_.name == "apple")
 
@@ -31,6 +41,9 @@ trait Offers {
     }
   }
 
+  /**
+   * 3 for the price of 2 on Oranges
+   */
   def calculateOrangesToDiscard = {
     val nbApples = products count (_.name == "orange")
 
