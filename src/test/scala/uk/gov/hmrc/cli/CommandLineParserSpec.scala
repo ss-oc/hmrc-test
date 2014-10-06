@@ -5,7 +5,8 @@ import uk.gov.hmrc.stocks.SimpleStockManager
 
 /**
  * User: rgallet
- * Date: 06/10/14 21:52
+ *
+ * Inspired from https://github.com/grumlimited/timeline
  */
 class CommandLineParserSpec extends FeatureSpec with GivenWhenThen with Matchers {
   feature("CLI parsing") {
@@ -28,5 +29,22 @@ class CommandLineParserSpec extends FeatureSpec with GivenWhenThen with Matchers
         _.name == "apple"
       }.size should be(3)
     }
+  }
+
+  scenario("Comma-separated list of products") {
+
+    Given("A CSV with invalid values")
+    val line = "Apple, invalid1, 2invalid, inva3lid"
+
+    And("A parser")
+    val manager = new SimpleStockManager
+    val parser = new CommandLineParser(manager)
+
+    Then("It should parse")
+    val list = parser.parse(line)
+    list.size should be(1)
+    list.filter {
+      _.name == "apple"
+    }.size should be(1)
   }
 }
