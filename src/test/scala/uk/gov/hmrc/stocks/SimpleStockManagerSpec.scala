@@ -82,4 +82,18 @@ class SimpleStockManagerSpec extends FeatureSpec with GivenWhenThen with Matcher
     orange.name shouldBe "orange"
     orange.price should equal(0.25)
   }
+
+  scenario("Testing getting a non-existent product") {
+
+    Given("a simple stock manager")
+    val manager = new SimpleStockManager
+
+    When("testing for random")
+    val e = intercept[ProductNotFoundException] {
+      manager.getProduct("does not exist")
+    }
+
+    Then("Name should be apple")
+    e shouldBe an[ProductNotFoundException]
+  }
 }
