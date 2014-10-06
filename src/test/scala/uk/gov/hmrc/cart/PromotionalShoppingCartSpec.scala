@@ -9,7 +9,7 @@ import uk.gov.hmrc.products.{Apple, Orange}
  */
 class PromotionalShoppingCartSpec extends FeatureSpec with GivenWhenThen with Matchers {
   feature("Promotional shopping cart") {
-    scenario("Testing promotional offers with 0 apples") {
+    scenario("Testing promotional offers with 0 apple") {
 
       Given("A shopping cart")
       val cart = new BasicShoppingCart with Offers
