@@ -47,5 +47,18 @@ class PromotionalShoppingCartSpec extends FeatureSpec with GivenWhenThen with Ma
       cart.calculateApplesToDiscard should be (2)
     }
 
+    scenario("Testing promotional offers with 3 oranges") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      When("Adding some products")
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+
+      Then("Should discard 01")
+      cart.calculateOrangesToDiscard should be (1)
+    }
   }
 }
