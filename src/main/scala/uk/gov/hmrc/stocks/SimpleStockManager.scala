@@ -16,4 +16,15 @@ class SimpleStockManager extends StockManager {
       _.name == productName.toLowerCase
     }
   }
+
+  override def getProduct(productName: String) = {
+    isProductAvailable(productName) match {
+      case true =>
+        availableProducts.find {
+          _.name == productName.toLowerCase
+        }.get
+      case _ =>
+        throw new ProductNotFoundException
+    }
+  }
 }
