@@ -9,6 +9,15 @@ import uk.gov.hmrc.products.{Apple, Orange}
  */
 class PromotionalShoppingCartSpec extends FeatureSpec with GivenWhenThen with Matchers {
   feature("Promotional shopping cart") {
+    scenario("Testing promotional offers with 0 apples") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      Then("Should discard 0")
+      cart.calculateApplesToDiscard should be (0)
+    }
+
     scenario("Testing promotional offers with 3 apples") {
 
       Given("A shopping cart")
@@ -23,6 +32,20 @@ class PromotionalShoppingCartSpec extends FeatureSpec with GivenWhenThen with Ma
       cart.calculateApplesToDiscard should be (1)
     }
 
+    scenario("Testing promotional offers with 4 apples") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      When("Adding some products")
+      cart.addProduct(new Apple)
+      cart.addProduct(new Apple)
+      cart.addProduct(new Apple)
+      cart.addProduct(new Apple)
+
+      Then("Should discard 2")
+      cart.calculateApplesToDiscard should be (2)
+    }
 
   }
 }
