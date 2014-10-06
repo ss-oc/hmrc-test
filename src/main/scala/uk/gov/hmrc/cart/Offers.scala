@@ -7,7 +7,7 @@ package uk.gov.hmrc.cart
 trait Offers {
   this: ShoppingCart =>
 
-  override def calculateTotal = {
+  override def eligibleProducts = {
     val applesToDiscards = calculateApplesToDiscard
     val orangesToDiscards = calculateOrangesToDiscard
 
@@ -15,9 +15,7 @@ trait Offers {
 
     val oranges = products.filter (_.name == "orange").splitAt(orangesToDiscards)._2
 
-    (oranges ++ apples).foldLeft(BigDecimal(0)) { (price, product) =>
-      product.price + price
-    }
+    oranges ++ apples
   }
 
   def calculateApplesToDiscard: Int = {

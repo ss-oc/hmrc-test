@@ -16,4 +16,6 @@ trait ShoppingCart {
   def calculateTotal: BigDecimal
 
   def products: List[Product]
+
+  def eligibleProducts: List[Product]
 }

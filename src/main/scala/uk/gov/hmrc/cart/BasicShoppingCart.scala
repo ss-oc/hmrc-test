@@ -20,8 +20,10 @@ class BasicShoppingCart extends ShoppingCart {
   }
 
   override def calculateTotal: BigDecimal = {
-    items.foldLeft(BigDecimal(0)) { (price, product) =>
+    eligibleProducts.foldLeft(BigDecimal(0)) { (price, product) =>
       product.price + price
     }
   }
+
+  override def eligibleProducts = products
 }
