@@ -55,5 +55,8 @@ class CommandLineParserSpec extends FeatureSpec with GivenWhenThen with Matchers
     list.filter {
       _.name == "apple"
     }.size should be(1)
+
+    And("Verify")
+    Mockito.verify(manager, Mockito.times(4)).getProduct(mockito.Matchers.anyString())
   }
 }
