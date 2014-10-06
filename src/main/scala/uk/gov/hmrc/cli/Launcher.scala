@@ -30,7 +30,7 @@ object Launcher {
       }
 
       println(s"Total for cart is £${cart.calculateTotal}")
-      println(s"Total for promotional cart is £${cart.calculateTotal}")
+      println(s"Total for promotional cart is £${promotionalCart.calculateTotal}")
       println(commandLine)
 
     } catch {
