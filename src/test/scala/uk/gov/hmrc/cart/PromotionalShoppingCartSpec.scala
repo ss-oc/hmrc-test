@@ -47,6 +47,40 @@ class PromotionalShoppingCartSpec extends FeatureSpec with GivenWhenThen with Ma
       cart.calculateApplesToDiscard should be (2)
     }
 
+    scenario("Testing promotional offers with 0 oranges") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      Then("Should discard 0")
+      cart.calculateOrangesToDiscard should be (0)
+    }
+
+    scenario("Testing promotional offers with 1 orange") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      When("Adding some products")
+      cart.addProduct(new Orange)
+
+      Then("Should discard 0")
+      cart.calculateOrangesToDiscard should be (0)
+    }
+
+    scenario("Testing promotional offers with 2 oranges") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      When("Adding some products")
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+
+      Then("Should discard 0")
+      cart.calculateOrangesToDiscard should be (0)
+    }
+
     scenario("Testing promotional offers with 3 oranges") {
 
       Given("A shopping cart")
@@ -59,6 +93,54 @@ class PromotionalShoppingCartSpec extends FeatureSpec with GivenWhenThen with Ma
 
       Then("Should discard 01")
       cart.calculateOrangesToDiscard should be (1)
+    }
+
+    scenario("Testing promotional offers with 4 oranges") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      When("Adding some products")
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+
+      Then("Should discard 1")
+      cart.calculateOrangesToDiscard should be (1)
+    }
+
+    scenario("Testing promotional offers with 5 oranges") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      When("Adding some products")
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+
+      Then("Should discard 1")
+      cart.calculateOrangesToDiscard should be (1)
+    }
+
+    scenario("Testing promotional offers with 6 oranges") {
+
+      Given("A shopping cart")
+      val cart = new BasicShoppingCart with Offers
+
+      When("Adding some products")
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+      cart.addProduct(new Orange)
+
+      Then("Should discard 1")
+      cart.calculateOrangesToDiscard should be (2)
     }
   }
 }
