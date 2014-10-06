@@ -39,10 +39,10 @@ trait Offers {
       case v if v % 3 == 0 =>
         v / 3
       case v if v % 3 == 1 =>
-        println("You should buy one more orange to enjoy a free one")
+        println("You should buy two more oranges to enjoy a free one")
         v / 3
       case v if v % 3 == 2 =>
-        println("You should buy two more orange to enjoy a free one")
+        println("You should buy one more oranges to enjoy a free one")
         v / 3
     }
   }
