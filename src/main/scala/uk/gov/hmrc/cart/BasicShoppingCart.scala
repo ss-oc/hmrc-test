@@ -7,11 +7,9 @@ import uk.gov.hmrc.products.Product
  * Date: 06/10/14 21:42
  */
 class BasicShoppingCart extends ShoppingCart {
-  override def addProduct(product: Product) {
-    throw new NoSuchMethodError()
-  }
+  private var items = List[Product]()
 
-  override def countProducts: Int = {
-    throw new NoSuchMethodError()
-  }
+  override def addProduct(product: Product) = items = product :: items
+
+  override def countProducts = items.size
 }
