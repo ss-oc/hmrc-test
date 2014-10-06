@@ -16,4 +16,10 @@ class BasicShoppingCart extends ShoppingCart {
   override def countProducts(productName: String) = {
     items.filter(_.name == productName.toLowerCase).size
   }
+
+  override def calculateTotal: BigDecimal = {
+    items.foldLeft(BigDecimal(0)) { (price, product) =>
+      product.price + price
+    }
+  }
 }

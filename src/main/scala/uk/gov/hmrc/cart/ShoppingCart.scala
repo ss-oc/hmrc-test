@@ -12,4 +12,6 @@ trait ShoppingCart {
   def countProducts: Int
 
   def countProducts(productName: String): Int
+
+  def calculateTotal: BigDecimal
 }
