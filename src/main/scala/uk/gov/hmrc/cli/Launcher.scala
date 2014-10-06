@@ -1,6 +1,6 @@
 package uk.gov.hmrc.cli
 
-import uk.gov.hmrc.cart.BasicShoppingCart
+import uk.gov.hmrc.cart.{Offers, BasicShoppingCart}
 import uk.gov.hmrc.stocks.{SimpleStockManager, ProductNotFoundException}
 
 /**
@@ -17,6 +17,7 @@ object Launcher {
     }
 
     val cart = new BasicShoppingCart
+    val promotionalCart = new BasicShoppingCart with Offers
     val parser = new CommandLineParser(new SimpleStockManager)
 
     val commandLine = c.readLine("Enter comma-delimited list of products > ")
@@ -25,9 +26,11 @@ object Launcher {
       val products = parser.parse(commandLine)
       products foreach { p =>
         cart.addProduct(p)
+        promotionalCart.addProduct(p)
       }
 
       println(s"Total for cart is £${cart.calculateTotal}")
+      println(s"Total for promotional cart is £${cart.calculateTotal}")
       println(commandLine)
 
     } catch {
