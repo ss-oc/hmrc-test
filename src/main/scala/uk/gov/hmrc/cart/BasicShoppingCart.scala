@@ -13,7 +13,7 @@ class BasicShoppingCart extends ShoppingCart {
   /**
    * A more complex system would probably add composition over Product,
    * to reference things like the price of the item when added, a timestamp, etc.
-   *
+   *ss
    * @param product Product to add to cart
    */
   override def addProduct(product: Product) = items = product :: items
