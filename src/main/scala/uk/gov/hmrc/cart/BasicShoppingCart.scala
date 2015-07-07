@@ -5,7 +5,7 @@ import uk.gov.hmrc.products.Product
 /**
  * Basic shopping cart with no promotional specific behavior
  *
- * TODO: proper logging
+ * TODO: proper loggingv  ss
  */
 class BasicShoppingCart extends ShoppingCart {
   private var items = List[Product]()
