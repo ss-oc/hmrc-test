@@ -18,11 +18,11 @@ class BasicShoppingCart extends ShoppingCart {
    */
   override def addProduct(product: Product) = items = product :: items
 
-  override def products: List[Product] = items
+  override def products = items
 
   /**
    * Counts products in cart
-   *
+
    * @return number of products
    */
   override def countProducts = items.size
@@ -33,7 +33,8 @@ class BasicShoppingCart extends ShoppingCart {
    * @return number of products
    */
   override def countProducts(productName: String) = {
-    items.filter(_.name == productName.toLowerCase).size
+    //items.filter(_.name == productName.toLowerCase).size
+    items.count(_.name == productName.toLowerCase);
   }
 
   /**
